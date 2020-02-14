@@ -32,6 +32,10 @@ export default function StarWarsCharacters() {
     e.preventDefault();
     setUrl(previous);
   };
+  const handleSubmit = e => {
+    e.preventDefault();
+    setUrl(url);
+  }
 
   return (
     <div>
@@ -50,6 +54,21 @@ export default function StarWarsCharacters() {
           ))}
         </>
       )}
+       <form>
+       
+      <input className="drop-down" 
+        as="select" 
+        name="data"
+        value={handleSubmit} />
+          <select id="options" name="data">
+          <option disabled>Choose an option</option>
+          <option value="people">People</option>
+          <option value="planets">Planets</option>
+          <option value="starships">Starships</option>
+          <option value="vehicles">Vehicles</option>
+          <option value="species">Species</option>
+          </select>
+      
       <div className="buttons">
         <button onClick={goToPrevious} disabled={!previous}>
           Previous
@@ -58,6 +77,7 @@ export default function StarWarsCharacters() {
           Next
         </button>
       </div>
+      </form>
     </div>
   );
 }
